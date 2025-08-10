@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json(validation.error.issues, { status: 400 })
     }
 
-    const newProduct =await prisma.product.create({
+    const newProduct = await prisma.product.create({
         data: {
             name: body.name,
             price: body.price
