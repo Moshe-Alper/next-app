@@ -1,6 +1,5 @@
 import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/github"
-import GoogleProvider from "next-auth/providers/google";
+import GoogleProvider from "next-auth/providers/google"
 
 export const authOptions = {
   providers: [
@@ -12,13 +11,13 @@ export const authOptions = {
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
+        token.id = user.id
       }
-      return token;
+      return token
     },
     async session({ session, token }) {
-      session.user.id = token.id;
-      return session;
+      session.user.id = token.id
+      return session
     },
   },
 }
