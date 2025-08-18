@@ -1,12 +1,23 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Roboto } from 'next/font/google'
+import localFont from 'next/font/local'
 import NavBar from './NavBar'
 import AuthProvider from './auth/Provider'
 import Script from 'next/script'
 import GoogleAnalyticsScript from './GoogleAnalyticsScript'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '500']
+})
+
+const lato = localFont({
+  src: '../public/fonts/Lato-Regular.ttf',
+  variable: '--font-lato'
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="winter">
       <GoogleAnalyticsScript />
-      <body className={inter.className}>
+      <body className={lato.variable}>
         <AuthProvider>
           <NavBar />
           <main className="p-5">{children}</main>
